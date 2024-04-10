@@ -1,0 +1,41 @@
+#iniciando variaveis com os valores
+ultimo = penultimo = antepenultimo = soma = atual = 0
+qdt_considerados = qdt_desconsiderados = qdt_numeros = 0
+
+# laço de repetição
+while (ultimo >= 0):
+
+    #pegando o valor digitado
+    atual = int(input("Digite um número? "))
+    soma = soma + atual
+
+    #verificando se o usuario digitou algum numero, se digitou, vai estar na variavel soma
+    #não usamos a variavel 'atual', pois caso se digite o 0 ela ia mostrar a mensagem de dentro do IF
+    if(soma == 0):
+        print("Não há nenhum número digitado!")
+    else:
+        #verificando se o numero digitado é zero, se for ele vai pegar o ultimo numero digitado e o tirar da soma
+        if(atual == 0):
+            soma = soma - ultimo
+            #como o ultimo valor foi zero, o valor da variavel ultimo não pode ser 0, pois caso seja digitado valor 0 novamente, o penultimo valor
+            #não será retirado da soma, para que a variavel 'ultimo' tenha um valor diferente de 0 armazenado, nós armazenamos o valor da penultima nela
+            #na penultima armazenamos o valor da antepenultima e na ante penultima -1, assim, caso 3 numeros zeros sejam digitados, todas essas variaveis
+            #terão o valor -1 armazenado em si, e assim, o programa ira encerrar
+            ultimo = penultimo
+            penultimo = antepenultimo
+            antepenultimo = -1
+        else:
+            #passando os valores de uma variavel para outra, pois as posições de ultimo, penultimo e antepenultimo 
+            #estão mudando de acordo com os numeros que estão entrando, da ultima até a antepenultima, sempre recebendo valor
+            #mais atual e mandando os outros já digitados para as outras variaveis
+            antepenultimo = penultimo
+            penultimo = ultimo
+            ultimo = atual
+        print(atual)
+        print(ultimo)
+        print(penultimo)
+        print(antepenultimo)
+        print(soma)
+
+    # print(atual)
+print("Encerrado")
